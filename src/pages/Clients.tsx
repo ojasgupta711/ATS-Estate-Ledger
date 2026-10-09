@@ -43,10 +43,10 @@ export function NewClientModal({ open, onClose }: { open: boolean; onClose: () =
     >
       <div className="space-y-4">
         <Field label="Client name" required error={touched && !name.trim() ? 'Client name is required' : undefined}>
-          <input className="input" value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Elaine Housten" autoFocus />
+          <input className="input" value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Jane Doe" autoFocus />
         </Field>
         <Field label="Estate name" hint={`Shown on the report title. Defaults to "${effectiveEstate || 'Client Name Estate'}".`}>
-          <input className="input" value={estateName} onChange={(e) => setEstateName(e.target.value)} placeholder={effectiveEstate || 'e.g. Elaine Housten Estate'} />
+          <input className="input" value={estateName} onChange={(e) => setEstateName(e.target.value)} placeholder={effectiveEstate || 'e.g. Jane Doe Estate'} />
         </Field>
         <Field label="Notes">
           <textarea className="input min-h-20" value={notes} onChange={(e) => setNotes(e.target.value)} />

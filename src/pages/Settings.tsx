@@ -147,7 +147,7 @@ export function SettingsPage() {
 
         <Card title="Demo data" subtitle="Prototype only">
           <p className="text-sm text-slate-600 dark:text-slate-400">
-            Restores the Elaine Housten sample estate and removes any changes you have made in this browser. <Badge tone="amber">Cannot be undone</Badge>
+            Restores the Jane Doe sample estate and removes any changes you have made in this browser. <Badge tone="amber">Cannot be undone</Badge>
           </p>
           <Button
             className="mt-4"

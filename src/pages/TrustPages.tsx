@@ -84,7 +84,7 @@ function NodeFields({ f, set, nodes, selfId }: { f: NodeFormState; set: <K exten
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
       <Field label="Trust / category name" required className="sm:col-span-2">
-        <input className="input" value={f.name} onChange={(e) => set('name', e.target.value)} placeholder="e.g. Housten Family 1998 Trust" />
+        <input className="input" value={f.name} onChange={(e) => set('name', e.target.value)} placeholder="e.g. Doe Family 1998 Trust" />
       </Field>
       <Field label="Type">
         <select
