@@ -122,8 +122,8 @@ export type NodeColor = keyof typeof NODE_COLORS;
 
 export interface Client {
   id: string;
-  name: string; // e.g. "Elaine Housten"
-  estateName: string; // e.g. "Elaine Housten Estate"
+  name: string; // e.g. "Jane Doe"
+  estateName: string; // e.g. "Jane Doe Estate"
   advisor: string;
   notes: string;
   createdAt: string;
@@ -131,7 +131,7 @@ export interface Client {
 
 /** A file saved by the local server under storage/clients/<client>/... */
 export interface StoredFile {
-  path: string; // relative to the storage folder, e.g. "clients/Elaine Housten Estate/uploads/2026-09/..."
+  path: string; // relative to the storage folder, e.g. "clients/Jane Doe Estate/uploads/2026-09/..."
   url: string; // "/api/files/..."
   size: number;
   sha256: string;
