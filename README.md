@@ -62,7 +62,7 @@ This builds the app and serves it from the server alone at **<http://localhost:3
 
 **Demo login:** `demo@atsestate.com` / `Demo1234!`. You can also click **Use demo login**.
 You can create your own login too: the verification code is shown on screen, because
-email sending isn't connected yet. To restore the Elaine Housten sample data, go to
+email sending isn't connected yet. To restore the Jane Doe sample data, go to
 **Settings → Reset demo data**.
 
 ## Where files are stored
@@ -75,12 +75,12 @@ storage/
 │  ├─ app-data.json                     all clients, trusts, accounts and import history
 │  └─ backups/app-data-<date_time>.json the 30 previous versions, saved automatically
 └─ clients/
-   └─ Elaine Housten Estate/
+   └─ Jane Doe Estate/
       ├─ uploads/
       │  └─ 2026-09/
       │     └─ 2026-09-27_101530__Schwab September 2026.xlsx   original spreadsheet, never overwritten
       └─ reports/
-         └─ Elaine Housten Estate Summary 2026-09-27.pdf       generated estate summaries
+         └─ Jane Doe Estate Summary 2026-09-27.pdf       generated estate summaries
 ```
 
 - Every imported spreadsheet is kept exactly as uploaded, with a time stamp in its
@@ -180,7 +180,7 @@ The institution list is managed in **Settings → Financial institutions**.
 | Data-quality checks | `src/lib/quality.ts` |
 | All totals and roll-ups | `src/lib/calc.ts` |
 | Estate Summary PDF | `src/lib/pdf.ts`, `src/pages/ReportPage.tsx` |
-| Sample data (Elaine Housten, from the 9/3/2026 summary) | `src/data/seed.ts` |
+| Sample data (Jane Doe, fictional) | `src/data/seed.ts` |
 | Local server (data + file storage) | `server/index.mjs`, `src/lib/api.ts` |
 | Dev runner (client + server together) | `scripts/dev.mjs` |
 | Institution list and name matching | `src/data/institutions.ts` |
