@@ -75,7 +75,7 @@ export function findDuplicates(c: Candidate, existing: Account[], parentNameOf: 
     const trust = !!c.parentName && normName(c.parentName) === normName(parentNameOf(a));
 
     // A clearly different account number rules out a duplicate even if names match
-    // (e.g. two "Schwab Housten Family 1998 Trust" accounts).
+    // (e.g. two "Schwab Doe Family 1998 Trust" accounts).
     if (num === 'differ') continue;
 
     let confidence: DuplicateMatch['confidence'] | null = null;
