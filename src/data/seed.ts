@@ -3,7 +3,7 @@ import { DEFAULT_ACCOUNT_TYPES } from '../types';
 import { activityFromImports } from '../lib/activity';
 import { DEFAULT_INSTITUTIONS, RENAMED_INSTITUTIONS, RETIRED_INSTITUTIONS } from './institutions';
 
-// Sample data reproduces the "Elaine Housten Estate Summary" (Internal Use Only 9/3/2026).
+// Sample data for the fictional "Jane Doe Estate" (layout follows the 9/3/2026 estate summary template).
 // Account numbers are fictional except for the last four digits shown on the template.
 
 const C1 = 'client_housten';
@@ -17,8 +17,8 @@ const IMPORTED_AT = '2026-09-02T16:12:00.000Z';
 const clients: Client[] = [
   {
     id: C1,
-    name: 'Elaine Housten',
-    estateName: 'Elaine Housten Estate',
+    name: 'Jane Doe',
+    estateName: 'Jane Doe Estate',
     advisor: 'ATS Trust Team',
     notes: 'Estate summary last reviewed 9/3/2026.',
     createdAt: '2024-01-15T00:00:00.000Z',
@@ -42,58 +42,58 @@ const nodes: EstateNode[] = [
   node({
     id: 'n_qual',
     clientId: C1,
-    name: 'Elaine Housten Qualified',
+    name: 'Jane Doe Qualified',
     type: 'Qualified',
     color: 'peach',
     reportColumn: 'left',
     order: 1,
     distributionInfo:
-      '2023 RMD - $75,071\n2024 RMD - $88,898\n2025 RMD - $110,027\n2026 Total RMD - $125,874.95 (NW $114,391; Schwab $11,484)\nFederal 22% $27,875, State 10% $12,587 - Total tax withheld $40,280',
+      '2023 RMD - $60,180\n2024 RMD - $71,120\n2025 RMD - $88,020\n2026 Total RMD - $100,230.40 (NW $91,050; Schwab $9,180)\nFederal 22% $22,051, State 10% $10,023 - Total tax withheld $32,074',
   }),
-  node({ id: 'n_minor', clientId: C1, name: 'Elaine Housten Minors', type: 'Minor', color: 'gold', reportColumn: 'left', order: 2 }),
+  node({ id: 'n_minor', clientId: C1, name: 'Jane Doe Minors', type: 'Minor', color: 'gold', reportColumn: 'left', order: 2 }),
   node({
     id: 'n_crt',
     clientId: C1,
-    name: 'Housten CRT',
+    name: 'Doe CRT',
     type: 'CRT',
     color: 'slate',
     reportColumn: 'left',
     order: 3,
-    distributionInfo: '8.00% unitrust payout. 2026 distribution $82,709.53.',
+    distributionInfo: '8.00% unitrust payout. 2026 distribution $68,683.38.',
     crt: {
       initialDate: '2009-09-29',
-      initialValue: 1041666.6,
-      netProceeds: 1020833.33,
+      initialValue: 854166.67,
+      netProceeds: 837083.33,
       payoutRate: 8,
       fmvAsOfDate: '2025-12-31',
-      fmvAsOf: 994467.34,
+      fmvAsOf: 815463.22,
       rows: [
-        [2010, 1029465.81, 82357.26],
-        [2011, 1075067.32, 86005.39],
-        [2012, 915558.18, 73244.65],
-        [2013, 896095.29, 71687.62],
-        [2014, 980307.36, 78424.59],
-        [2015, 936818.66, 74945.49],
-        [2016, 831371.43, 66503.58],
-        [2017, 819042.97, 65515.73],
-        [2018, 869311.01, 69537.03],
-        [2019, 756962.12, 61027.47],
-        [2020, 859196.2, 68724.77],
-        [2021, 1087152.73, 86962.14],
-        [2022, 1141027.55, 91267.54],
-        [2023, 778560.57, 62284.84],
-        [2024, 872306.65, 69784.53],
-        [2025, 994467.34, 79557.4],
-        [2026, 1047002.76, 82709.53],
+        [2010, 844161.96, 67532.96],
+        [2011, 881555.2, 70524.42],
+        [2012, 750757.71, 60060.62],
+        [2013, 734798.14, 58783.85],
+        [2014, 803852.04, 64308.16],
+        [2015, 768191.3, 61455.3],
+        [2016, 681724.57, 54537.97],
+        [2017, 671615.24, 53729.22],
+        [2018, 712835.03, 57026.8],
+        [2019, 620708.94, 49656.72],
+        [2020, 704540.88, 56363.27],
+        [2021, 891465.24, 71317.22],
+        [2022, 935642.59, 74851.41],
+        [2023, 638419.67, 51073.57],
+        [2024, 715291.45, 57223.32],
+        [2025, 815463.22, 65237.06],
+        [2026, 858542.26, 68683.38],
       ].map(([year, fmv, distribution]) => ({ year, fmv, distribution })),
     },
   }),
-  node({ id: 'n_1998', clientId: C1, name: 'Housten Family 1998 Trust (Elaine)', type: 'Trust', color: 'sage', reportColumn: 'right', order: 4 }),
+  node({ id: 'n_1998', clientId: C1, name: 'Doe Family 1998 Trust (Jane)', type: 'Trust', color: 'sage', reportColumn: 'right', order: 4 }),
   node({
     id: 'n_fam',
     clientId: C1,
     parentId: 'n_1998',
-    name: 'Family Trust Created under Housten Trust (Sam)',
+    name: 'Family Trust Created under Doe Trust (Sam)',
     type: 'Family Trust',
     color: 'green',
     order: 1,
@@ -102,7 +102,7 @@ const nodes: EstateNode[] = [
     id: 'n_child',
     clientId: C1,
     parentId: 'n_1998',
-    name: "Housten Children's Trust",
+    name: "Doe Children's Trust",
     type: "Children's Trust",
     color: 'lavender',
     order: 2,
@@ -112,7 +112,7 @@ const nodes: EstateNode[] = [
   node({
     id: 'n_tcrt',
     clientId: C1,
-    name: 'Housten Testamentary CRT',
+    name: 'Doe Testamentary CRT',
     type: 'CRT',
     color: 'blue',
     reportColumn: 'right',
@@ -172,23 +172,23 @@ function acct(s: Seed): Account {
 }
 
 const accounts: Account[] = [
-  // Elaine Housten Qualified — $2,297,700
-  acct({ id: 'a_nw_ira', name: 'Nationwide VA IRA', number: '4401-7127', institution: 'Nationwide', type: 'Qualified', parentId: 'n_qual', owner: 'Elaine Housten', beneficiary: 'Housten Family 1998 Trust', value: 2114747, dist: 114391, freq: 'Annual', lastUpdated: '2026-08-31', src: 'nw', row: 2 }),
-  acct({ id: 'a_sch_ira', name: 'Schwab IRA', number: '5512-4497', institution: 'Charles Schwab', type: 'Qualified', parentId: 'n_qual', owner: 'Elaine Housten', beneficiary: 'Housten Family 1998 Trust', value: 182953, dist: 11483.95, freq: 'Annual', lastUpdated: '2026-08-31', src: 'schwab', row: 5 }),
-  // Elaine Housten Minors — $0
-  acct({ id: 'a_min_sam', name: 'Schwab Minor Samuel', number: '5512-7435', institution: 'Charles Schwab', type: 'Minor', parentId: 'n_minor', owner: 'Elaine Housten, Custodian', beneficiary: 'Samuel Housten', value: 0, lastUpdated: '2026-08-31', src: 'schwab', row: 6 }),
-  acct({ id: 'a_min_wil', name: 'Schwab Minor William', number: '5512-4154', institution: 'Charles Schwab', type: 'Minor', parentId: 'n_minor', owner: 'Elaine Housten, Custodian', beneficiary: 'William Housten', value: 0, lastUpdated: '2026-08-31', src: 'schwab', row: 7 }),
-  // Housten CRT — $1,125,422
-  acct({ id: 'a_crt_sch', name: 'Schwab Housten 2009 CRT', number: '5512-1390', institution: 'Charles Schwab', type: 'CRT', parentId: 'n_crt', owner: 'Housten 2009 CRT', beneficiary: 'Charitable remainder', value: 193197, lastUpdated: '2026-08-31', src: 'schwab', row: 8 }),
-  acct({ id: 'a_crt_nw', name: 'Nationwide VA CRT', number: '4401-6204', institution: 'Nationwide', type: 'CRT', parentId: 'n_crt', owner: 'Housten 2009 CRT', beneficiary: 'Charitable remainder', value: 932225, lastUpdated: '2026-08-31', src: 'nw', row: 3 }),
-  // Housten Family 1998 Trust (Elaine) — $2,608,515
-  acct({ id: 'a_ft_5038', name: 'Schwab Housten Family 1998 Trust', number: '5512-5038', institution: 'Charles Schwab', type: 'Trust', parentId: 'n_1998', owner: 'Housten Family 1998 Trust', beneficiary: 'Per trust terms', value: 1847699, lastUpdated: '2026-08-31', src: 'schwab', row: 9 }),
-  acct({ id: 'a_ft_9223', name: 'Schwab Housten Family 1998 Trust', number: '5512-9223', institution: 'Charles Schwab', type: 'Trust', parentId: 'n_1998', owner: 'Housten Family 1998 Trust', beneficiary: 'Per trust terms', value: 130816, lastUpdated: '2026-08-31', src: 'schwab', row: 10 }),
-  acct({ id: 'a_vi', name: 'Vi Deposit', number: '', institution: 'Other', type: 'Trust', parentId: 'n_1998', owner: 'Housten Family 1998 Trust', beneficiary: 'Per trust terms', value: 630000, lastUpdated: '2026-09-01', notes: 'Refundable residence entrance deposit.', src: 'manual' }),
-  // Family Trust Created under Housten Trust (Sam) — $835,877
-  acct({ id: 'a_fam_6427', name: 'Schwab Trust', number: '5512-6427', institution: 'Charles Schwab', type: 'Family Trust', parentId: 'n_fam', owner: 'Family Trust u/Housten Trust (Sam)', beneficiary: 'Elaine Housten (income)', value: 835877, lastUpdated: '2026-08-31', src: 'schwab', row: 11 }),
-  // Housten Children's Trust — $337,210 (excluded from estate total)
-  acct({ id: 'a_lincoln', name: 'Lincoln VUL', number: '7730-2076', institution: 'Lincoln Financial', type: "Children's Trust", parentId: 'n_child', owner: "Housten Children's Trust", beneficiary: "Housten Children's Trust", value: 337210, lastUpdated: '2026-05-15', notes: 'Death Benefit $3,500,000', src: 'manual' }),
+  // Jane Doe Qualified — $1,829,695
+  acct({ id: 'a_nw_ira', name: 'Nationwide VA IRA', number: '4401-7127', institution: 'Nationwide', type: 'Qualified', parentId: 'n_qual', owner: 'Jane Doe', beneficiary: 'Doe Family 1998 Trust', value: 1683420, dist: 91050, freq: 'Annual', lastUpdated: '2026-08-31', src: 'nw', row: 2 }),
+  acct({ id: 'a_sch_ira', name: 'Schwab IRA', number: '5512-4497', institution: 'Charles Schwab', type: 'Qualified', parentId: 'n_qual', owner: 'Jane Doe', beneficiary: 'Doe Family 1998 Trust', value: 146275, dist: 9180.4, freq: 'Annual', lastUpdated: '2026-08-31', src: 'schwab', row: 5 }),
+  // Jane Doe Minors — $0
+  acct({ id: 'a_min_sam', name: 'Schwab Minor Samuel', number: '5512-7435', institution: 'Charles Schwab', type: 'Minor', parentId: 'n_minor', owner: 'Jane Doe, Custodian', beneficiary: 'Samuel Doe', value: 0, lastUpdated: '2026-08-31', src: 'schwab', row: 6 }),
+  acct({ id: 'a_min_wil', name: 'Schwab Minor William', number: '5512-4154', institution: 'Charles Schwab', type: 'Minor', parentId: 'n_minor', owner: 'Jane Doe, Custodian', beneficiary: 'William Doe', value: 0, lastUpdated: '2026-08-31', src: 'schwab', row: 7 }),
+  // Doe CRT — $934,950
+  acct({ id: 'a_crt_sch', name: 'Schwab Doe 2009 CRT', number: '5512-1390', institution: 'Charles Schwab', type: 'CRT', parentId: 'n_crt', owner: 'Doe 2009 CRT', beneficiary: 'Charitable remainder', value: 158640, lastUpdated: '2026-08-31', src: 'schwab', row: 8 }),
+  acct({ id: 'a_crt_nw', name: 'Nationwide VA CRT', number: '4401-6204', institution: 'Nationwide', type: 'CRT', parentId: 'n_crt', owner: 'Doe 2009 CRT', beneficiary: 'Charitable remainder', value: 776310, lastUpdated: '2026-08-31', src: 'nw', row: 3 }),
+  // Doe Family 1998 Trust (Jane) — $2,142,345
+  acct({ id: 'a_ft_5038', name: 'Schwab Doe Family 1998 Trust', number: '5512-5038', institution: 'Charles Schwab', type: 'Trust', parentId: 'n_1998', owner: 'Doe Family 1998 Trust', beneficiary: 'Per trust terms', value: 1512385, lastUpdated: '2026-08-31', src: 'schwab', row: 9 }),
+  acct({ id: 'a_ft_9223', name: 'Schwab Doe Family 1998 Trust', number: '5512-9223', institution: 'Charles Schwab', type: 'Trust', parentId: 'n_1998', owner: 'Doe Family 1998 Trust', beneficiary: 'Per trust terms', value: 104960, lastUpdated: '2026-08-31', src: 'schwab', row: 10 }),
+  acct({ id: 'a_vi', name: 'Vi Deposit', number: '', institution: 'Other', type: 'Trust', parentId: 'n_1998', owner: 'Doe Family 1998 Trust', beneficiary: 'Per trust terms', value: 525000, lastUpdated: '2026-09-01', notes: 'Refundable residence entrance deposit.', src: 'manual' }),
+  // Family Trust Created under Doe Trust (Sam) — $688,140
+  acct({ id: 'a_fam_6427', name: 'Schwab Trust', number: '5512-6427', institution: 'Charles Schwab', type: 'Family Trust', parentId: 'n_fam', owner: 'Family Trust u/Doe Trust (Sam)', beneficiary: 'Jane Doe (income)', value: 688140, lastUpdated: '2026-08-31', src: 'schwab', row: 11 }),
+  // Doe Children's Trust — $281,450 (excluded from estate total)
+  acct({ id: 'a_lincoln', name: 'Lincoln VUL', number: '7730-2076', institution: 'Lincoln Financial', type: "Children's Trust", parentId: 'n_child', owner: "Doe Children's Trust", beneficiary: "Doe Children's Trust", value: 281450, lastUpdated: '2026-05-15', notes: 'Death Benefit $2,750,000', src: 'manual' }),
 ];
 
 const imports: ImportRecord[] = [
@@ -201,7 +201,7 @@ const imports: ImportRecord[] = [
     accountsAdded: 7,
     accountsReplaced: 0,
     accountsSkipped: 0,
-    totalValue: 182953 + 0 + 0 + 193197 + 1847699 + 130816 + 835877,
+    totalValue: 146275 + 0 + 0 + 158640 + 1512385 + 104960 + 688140,
     unmappedColumns: ['Day Change $', 'Cash & Cash Investments'],
     importedBy: 'demo@atsestate.com',
   },
@@ -214,13 +214,13 @@ const imports: ImportRecord[] = [
     accountsAdded: 2,
     accountsReplaced: 0,
     accountsSkipped: 0,
-    totalValue: 2114747 + 932225,
+    totalValue: 1683420 + 776310,
     unmappedColumns: [],
     importedBy: 'demo@atsestate.com',
   },
 ];
 
-export const DATA_VERSION = 7;
+export const DATA_VERSION = 8;
 
 export function createSeedData(): AppData {
   return structuredClone({
@@ -292,6 +292,22 @@ export function migrateData(raw: unknown): AppData | null {
       accounts: d.accounts.filter(gone),
       imports: d.imports.filter(gone),
       activity: (d.activity ?? []).filter(gone),
+    };
+  }
+
+  if (d.version === 7) {
+    // v8: the sample client is now the fictional Jane Doe, with new sample values.
+    // Replace the old sample estate with the new one; other clients are kept as they are.
+    const seed = createSeedData();
+    const other = (x: { clientId: string }) => x.clientId !== C1;
+    d = {
+      ...d,
+      version: 8,
+      clients: [...seed.clients, ...d.clients.filter((c) => c.id !== C1)],
+      nodes: [...seed.nodes, ...d.nodes.filter(other)],
+      accounts: [...seed.accounts, ...d.accounts.filter(other)],
+      imports: [...seed.imports, ...d.imports.filter(other)],
+      activity: [...(seed.activity ?? []), ...(d.activity ?? []).filter(other)],
     };
   }
   return d;
